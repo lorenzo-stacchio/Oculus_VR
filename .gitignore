@@ -72,3 +72,11 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /Basic_Interactions/Library
 /Basic_Interactions/Temp
+/Basic_Interactions/Assets/Oculus
+/Basic_Interactions/Assets
+/Basic_Interactions/Assets
+/Oculus_Quest_Basic/Library/PackageCache
+/Oculus_Quest_Basic/Logs
+/Oculus_Quest_Basic/Library/ShaderCache
+/Oculus_Quest_Basic/Library
+/Oculus_Quest_Basic/Assets/TextMesh Pro
