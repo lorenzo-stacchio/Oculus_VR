@@ -22,7 +22,7 @@ public class NerfMeshManager : MonoBehaviour
     {
         if (currentHand == Handedness.Left && this.interaction_started)
         {
-            //this.StopMotion();
+            this.StopMotion();
             this.AssignCompleteTransform(lastPosition, lastRotation,lastScale);
 
         }
@@ -40,7 +40,6 @@ public class NerfMeshManager : MonoBehaviour
 
     public void StopMotion()
     {
-
         Rigidbody rbdy = this.gameObject.GetComponent<Rigidbody>();
         //Stop Moving/Translating
         rbdy.velocity = Vector3.zero;
@@ -56,7 +55,7 @@ public class NerfMeshManager : MonoBehaviour
         //check hand is what we wanted
         HandGrabInteractor handGrabInteractor = (HandGrabInteractor)evt.Data;
         currentHand = handGrabInteractor.Hand.Handedness;
-        if (currentHand == Handedness.Left && ! this.interaction_started)
+        if (currentHand == Handedness.Left)
         {
             Debug.Log("HERE START");
             this.interaction_started = true;
@@ -64,30 +63,12 @@ public class NerfMeshManager : MonoBehaviour
             this.lastRotation = this.gameObject.transform.rotation;
             this.lastScale = this.gameObject.transform.localScale;
         }
+        else
+        {
+            this.interaction_started = false;
+        }
         
     }
-
-    public void InteractionOuter(PointerEvent evt)
-    {
-        Debug.Log("HERE EHD");
-
-        StartCoroutine(WaitForSeconds(5f));
-
-    }
-
-    IEnumerator WaitForSeconds(float seconds)
-    {
-        // Wait for 3 seconds
-        yield return new WaitForSeconds(seconds);
-
-        // After 3 seconds, continue executing the code below this line
-        Debug.Log("Three seconds have passed!");
-
-        this.interaction_started = false;
-
-    }
-
-
 
 
 }
