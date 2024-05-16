@@ -26,13 +26,13 @@ public class testbutton : MonoBehaviour
 
         if (this.state)
         {
-            this.text.text = "Active";
+            this.text.text = "Grabbable";
             this.material.color= new Color(0f, 255f, 0f);
 
         }
         else
         {
-            this.text.text = "Non active";
+            this.text.text = "Denied Grabbable";
             this.material.color = new Color(255f, 0f, 0f);
 
         }
