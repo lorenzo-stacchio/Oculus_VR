@@ -71,5 +71,82 @@ public class NerfMeshManager : MonoBehaviour
     }
 
 
+    public void OnInteractionStart(PointerEvent evt)
+    {
+
+        string RotoTranslationValue = this.TransformToString(this.gameObject.transform);
+
+        DataModel test = new DataModel(Logger.logger.FirstName, Logger.logger.LastName,
+                        "Base", this.gameObject.name, "Exploration", "Interaction Started", "RotoTranslation", System.DateTime.Now, RotoTranslationValue);
+
+        Logger.logger.Add_Row_Log(test.ToString());
+    }
+
+
+    public void OnInteractionEnd(PointerEvent evt)
+    {
+
+        string RotoTranslationValue = this.TransformToString(this.gameObject.transform);
+
+        DataModel test = new DataModel(Logger.logger.FirstName, Logger.logger.LastName,
+                        "Base", this.gameObject.name, "Exploration", "Interaction Ended", "RotoTranslation", System.DateTime.Now, RotoTranslationValue);
+
+        Logger.logger.Add_Row_Log(test.ToString());
+    }
+
+
+    public void OnInteraction(PointerEvent evt)
+    {
+
+        string RotoTranslationValue = this.TransformToString(this.gameObject.transform);
+
+        DataModel test = new DataModel(Logger.logger.FirstName, Logger.logger.LastName,
+                        "Base", this.gameObject.name, "Exploration", "Movement Interaction", "RotoTranslation", System.DateTime.Now, RotoTranslationValue);
+
+        Logger.logger.Add_Row_Log(test.ToString());
+    }
+
+
+    public void Hovering(PointerEvent evt)
+    {
+
+        string RotoTranslationValue = this.TransformToString(this.gameObject.transform);
+
+        DataModel test = new DataModel(Logger.logger.FirstName, Logger.logger.LastName,
+                        "Base", this.gameObject.name, "Exploration", "Hovering Interaction", "RotoTranslation", System.DateTime.Now, RotoTranslationValue);
+
+        Logger.logger.Add_Row_Log(test.ToString());
+    }
+
+    public void unHovering(PointerEvent evt)
+    {
+
+        string RotoTranslationValue = this.TransformToString(this.gameObject.transform);
+
+        DataModel test = new DataModel(Logger.logger.FirstName, Logger.logger.LastName,
+                        "Base", this.gameObject.name, "Exploration", "UnHovering Interaction", "RotoTranslation", System.DateTime.Now, RotoTranslationValue);
+
+        Logger.logger.Add_Row_Log(test.ToString());
+    }
+
+
+    private string TransformToString(Transform transform)
+    {
+        Vector3 position = transform.position;
+        Quaternion rotation = transform.rotation;
+        Vector3 scale = transform.localScale;
+
+        string to_ret =  $"Pos_{position.x}---{position.y}---{position.z}|" +
+               $"Rot_{rotation.x}---{rotation.y}---{rotation.z}---{rotation.w}|" +
+               $"Sc_{scale.x}---{scale.y}---{scale.z}";
+
+        to_ret = to_ret.Replace(',', '.');
+
+        return to_ret;
+
+    }
+
+
+
 
 }
