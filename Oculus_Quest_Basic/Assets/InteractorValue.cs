@@ -13,10 +13,10 @@ public class InteractorValue : MonoBehaviour
 
     //public event Action<PointerEvent> WhenPointerEventRaised;
 
-    public void Init(int scoreValue, ScoreManager manager)
+    public void SetValues(int scoreValue, GameObject manager)
     {
         this.scoreValue = scoreValue;
-        this.scoreManager = manager;
+        this.scoreManager = manager.GetComponent<ScoreManager>();
     }
 
 
@@ -26,10 +26,10 @@ public class InteractorValue : MonoBehaviour
     }
 
 
-    public void Clicked()
+    public void Test()
     {
-        this.scoreManager.AddMark(this.gameObject);
+        //Debug.Log("test");
+        this.scoreManager.AddMark(this.gameObject.transform.parent.gameObject);
     }
-
 
 }

@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Oculus.Interaction; 
-
+using Oculus.Interaction;
+using TMPro;
 public class ScoreManager : MonoBehaviour
 {
 
@@ -20,20 +20,51 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         //generate buttons
-        for (int i=0; i < this.maxScore; i++)
+        //for (int i=0; i < this.maxScore; i++)
+        //{
+        //    GameObject button = Instantiate(this.prefabButton, new Vector3(0, 0, 0), Quaternion.identity);
+        //    button.transform.parent = this.gameObject.transform;
+        //    button.transform.position = new Vector3(0, 0, i * (-0.18f));
+        //    button.name = (i + 1).ToString();
+        //    InteractorValue comp = button.AddComponent<InteractorValue>();
+        //    comp.Init(i + 1, this);
+        //    //IPointable test = new IPointable();
+
+        //    // set clicked function
+        //    button.transform.FindChildRecursive("Visual").gameObject.name= "Visual_" + (i + 1).ToString();
+
+        //    button.transform.FindChildRecursive("Text").GetComponent<TextMeshPro>().text = (i + 1).ToString();
+        //}
+
+        for (int i = 0; i < this.transform.childCount; i++)
         {
-            //GameObject button = Instantiate(this.prefabButton, new Vector3(0,0,0), Quaternion.identity);
-            //button.transform.parent = this.gameObject.transform;
-            //button.transform.position = new Vector3(0, 0, i * (-0.18f));
-            //button.name = (i+1).ToString();
-            //InteractorValue comp = button.AddComponent<InteractorValue>();
-            //comp.Init(i+1, this);
-            //IPointable test = new IPointable();
+            // Get the child transform at index i
+            Transform childTransform = this.transform.GetChild(i);
 
-            // set clicked function
-
-            //button.transform.Find("Visuals").GetComponent<PointableUnityEventWrapper>().WhenSelect += comp.Clicked();
+            // Print the name of the child GameObject
+            Debug.Log("Child " + i + ": " + childTransform.gameObject.name);
+            GameObject childScoreButton = childTransform.gameObject;
+            int index = int.Parse(childScoreButton.name);
+            childScoreButton.transform.FindChildRecursive("Visuals").gameObject.name = "Visuals_" + (index + 1).ToString();
+            childScoreButton.GetComponentInChildren<InteractorValue>().SetValues(int.Parse(childScoreButton.name),this.gameObject);
         }
+
+        //    foreach (GameObject score in this.transform.FindChildren())
+        //{
+        //    GameObject button = Instantiate(this.prefabButton, new Vector3(0, 0, 0), Quaternion.identity);
+        //    button.transform.parent = this.gameObject.transform;
+        //    button.transform.position = new Vector3(0, 0, i * (-0.18f));
+        //    button.name = (i + 1).ToString();
+        //    InteractorValue comp = button.AddComponent<InteractorValue>();
+        //    comp.Init(i + 1, this);
+        //    //IPointable test = new IPointable();
+
+        //    // set clicked function
+        //    button.transform.FindChildRecursive("Visual").gameObject.name = "Visual_" + (i + 1).ToString();
+
+        //    button.transform.FindChildRecursive("Text").GetComponent<TextMeshPro>().text = (i + 1).ToString();
+        //}
+
     }
 
     // Update is called once per frame
@@ -49,21 +80,30 @@ public class ScoreManager : MonoBehaviour
         scoreClicked.transform.FindChildRecursive("Panel").gameObject.GetComponent<Renderer>().material.color = new Color(0.0f, 255.0f, 0.0f);
         string actionState = "";
 
-        if (this.lastSelected.Equals(null))
+        if (this.lastSelected == null)
         {
-            this.lastSelected.transform.FindChildRecursive("Panel").gameObject.GetComponent<Renderer>().material.color = new Color(0.0f, 255.0f, 0.0f);
+            //scoreClicked.transform.FindChildRecursive("Panel").gameObject.GetComponent<Renderer>().material.color = new Color(0.0f, 255.0f, 0.0f);
             actionState = "FirstMark";
-        } else
-        {
-            this.lastSelected.transform.FindChildRecursive("Panel").gameObject.GetComponent<Renderer>().material.color = new Color(0.0f, 0.0f, 0.0f);
-            actionState = "MarkChanged";
-
         }
-       
+        else
+        {
+            if (this.lastSelected.Equals(scoreClicked))
+            {
+                actionState = "ClickedSameValue";
+            }
+            else
+            {
+                this.lastSelected.transform.FindChildRecursive("Panel").gameObject.GetComponent<Renderer>().material.color = new Color(0.0f, 0.0f, 0.0f);
+                actionState = "MarkChanged";
+                this.lastSelected = scoreClicked;
+                //this.lastSelected.transform.FindChildRecursive("Panel").gameObject.GetComponent<Renderer>().material.color = new Color(0.0f, 255.0f, 0.0f);
+            }
+        }
+        
 
         this.lastSelected = scoreClicked;
-
-        this.selectedScore = scoreClicked.GetComponent<InteractorValue>().getScoreValue();
+        this.lastSelected.transform.FindChildRecursive("Panel").gameObject.GetComponent<Renderer>().material.color = new Color(0.0f, 255.0f, 0.0f);
+        this.selectedScore = scoreClicked.GetComponentInChildren<InteractorValue>().getScoreValue();
 
 
 
