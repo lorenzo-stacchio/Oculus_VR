@@ -1,0 +1,26 @@
+{
+    "San Ginesio": {
+
+        "SfM": {
+            "filepath": "Custom_Mesh/GT/StatuaTLS",
+            "method": "photogrammetry",
+            "macro": "classic"
+        },
+        "Laser": {
+            "filepath": "Custom_Mesh/GT/StatuaUAV",
+            "method": "laser scanning",
+            "macro": "classic"
+        },
+        "neural rendering_Nerfacto": {
+            "filepath": "Custom_Mesh/NR/Nerfacto/SanGinesio_nerfacto_mesh",
+            "method": "Nerfacto",
+            "macro": "Neural Rendering"
+        },
+        "neural rendering_LUMAAI": {
+            "filepath": "Custom_Mesh/NR/LUMAAI/San_Ginesio_textured_mesh_glb",
+            "method": "3DGS",
+            "macro": "Neural Rendering"
+        }
+
+    }
+}
