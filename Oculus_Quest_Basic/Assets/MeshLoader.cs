@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Globalization;
 
 public class MeshLoader : MonoBehaviour
 {
@@ -28,30 +29,86 @@ public class MeshLoader : MonoBehaviour
             Debug.Log("Value: " + locationProperty.Value);
             JObject jsonObjectInner = JObject.Parse(locationProperty.Value.ToString());
 
+            float offset_x = 2f;
+            int count = 0;
             foreach (var method_Metadata in jsonObjectInner)
             {
                 //Debug.Log("Key: " + method_Metadata.Key);
                 //Debug.Log("Value: " + method_Metadata.Value);
-                Dictionary<string, string> dict_model = method_Metadata.Value.ToObject<Dictionary<string, string>>();
+                JObject jsonObjectInnerValues = JObject.Parse(method_Metadata.Value.ToString());
 
-                string prefabFilePath = dict_model["filepath"];
+                //Dictionary<string, string> dict_model = method_Metadata.Value.ToObject<Dictionary<string, string>>();
+
+                string prefabFilePath = jsonObjectInnerValues["filepath"].ToString();
+                string typeFormat = jsonObjectInnerValues["type"].ToString();
+                Vector3 vectorRotation = JsonUtility.FromJson<Vector3>(jsonObjectInnerValues["rotation"].ToString());
+                float scaleMetric = float.Parse(jsonObjectInnerValues["scale_metric"].ToString(), CultureInfo.InvariantCulture);
+                float offset_factor = float.Parse(jsonObjectInnerValues["offset_factor"].ToString(), CultureInfo.InvariantCulture);
+
                 //prefabFilePath = prefabFilePath.Replace("Assets/Resources/Custom_Mesh/GT/", "");
                 //prefabFilePath = prefabFilePath.Replace(".obj", "");
 
                 //LoadObj(prefabFilePath);
                 var obj = Resources.Load<GameObject>(prefabFilePath);
                 Debug.Log("test");
+
                 //Instantiate Main prefab object container
                 GameObject containerManipulatorObj = Instantiate(this.containerManipulator, Vector3.zero, Quaternion.identity);
+                containerManipulatorObj.transform.parent = this.gameObject.transform;
                 containerManipulatorObj.name = nameObj  + "_" + method_Metadata.Key;
+                containerManipulatorObj.transform.position = new Vector3(count * offset_x, 0.0f, 0.0f);
+                containerManipulatorObj.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
                 GameObject containerManipulatorObjVisuals = containerManipulatorObj.transform.Find("Visuals").gameObject;
+               
 
-                //instantiate obj
-                GameObject instantiated = Instantiate(obj, Vector3.zero, Quaternion.identity);
+                //instantiate INNER obj
+                GameObject instantiated = Instantiate(obj, Vector3.zero, new Quaternion(0.0f, 0.0f, 0.0f, 0.0f));
                 instantiated.transform.parent = containerManipulatorObjVisuals.transform;
 
-                BoxCollider meshChild = instantiated.transform.Find("default").gameObject.AddComponent<BoxCollider>();
-                //meshChild.convex = true;
+                // set as prefixed in the json
+                Quaternion rotation = Quaternion.Euler(vectorRotation.x, vectorRotation.y, vectorRotation.z);
+                //instantiated.transform.localRotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
+                instantiated.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                instantiated.transform.localRotation = rotation;
+
+
+                GameObject TargetVisuals = containerManipulatorObjVisuals.transform.Find("Target").gameObject;
+                //Attach fix position with respect to target
+                //FixPositionWithRespectTo instantiatedFixed = instantiated.AddComponent<FixPositionWithRespectTo>();
+                //instantiatedFixed.Init(TargetVisuals, -1f);
+
+
+                if (typeFormat == "obj") {
+                 
+                    GameObject child = instantiated.transform.Find("default").gameObject;
+                    FixPositionWithRespectTo instantiatedFixed = child.AddComponent<FixPositionWithRespectTo>();
+                    instantiatedFixed.Init(TargetVisuals, -1 * offset_factor);
+
+                    BoxCollider meshChild = child.gameObject.AddComponent<BoxCollider>();
+                    // Attach fix scale to make all the meshes equally greater
+                    FixSize instantiatedFixedSizeObj = child.AddComponent<FixSize>();
+                    instantiatedFixedSizeObj.Init(scaleMetric);
+                    //DestroyImmediate(child.gameObject.GetComponent<BoxCollider>());
+                    //child.gameObject.AddComponent<BoxCollider>();
+
+                }
+                else if (typeFormat == "glb")
+                { // does not have default child
+                    FixPositionWithRespectTo instantiatedFixed = instantiated.AddComponent<FixPositionWithRespectTo>();
+                    instantiatedFixed.Init(TargetVisuals, -1 * offset_factor);
+                    BoxCollider meshChild = instantiated.AddComponent<BoxCollider>();
+                    // Attach fix scale to make all the meshes equally greater
+                    FixSize instantiatedFixedSizeGlb = instantiated.AddComponent<FixSize>();
+                    instantiatedFixedSizeGlb.Init(scaleMetric);
+                    //DestroyImmediate(meshChild.gameObject.GetComponent<BoxCollider>());
+                    //meshChild.gameObject.AddComponent<BoxCollider>();
+
+                }
+
+
+
+
+                count++;
             }
         }
     }

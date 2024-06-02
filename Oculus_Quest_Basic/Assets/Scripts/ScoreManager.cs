@@ -32,7 +32,10 @@ public class ScoreManager : MonoBehaviour
         this.MeshName = this.gameObject.transform.parent.name;
         this.scoreObject.transform.position = new Vector3(0, 0, 0); //center at button 3
         this.scoreObject.transform.position = this.scoreObject.transform.position + transform.right * offsetScore;
+        
         this.scoreObject.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
+
+        this.scoreObject.transform.Rotate(new Vector3(0.0f, 180.0f, 0.0f));
 
         Debug.Log(this.scoreObject.name);
 
@@ -64,7 +67,11 @@ public class ScoreManager : MonoBehaviour
             this.scoreObject.transform.position = this.targetObject.transform.position;// new Vector3(this.targetObject.transform.position.x, this.targetObject.transform.position.y, this.targetObject.transform.position.z + offsetScore);
             this.scoreObject.transform.position = this.scoreObject.transform.position + transform.right * offsetScore;
 
-            this.scoreObject.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
+            //FAST FIX
+            this.scoreObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            this.targetObject.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+
+            //this.scoreObject.transform.rotation = new Quaternion(0.0f, 0.0, 0.0f, 0.0f);
         }
         else
         {
