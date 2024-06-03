@@ -43,23 +43,24 @@ public class FixPositionWithRespectTo : MonoBehaviour
         //then move position backward with a fixed offset
         this.transform.position += withRespectTo.transform.forward * this.forwardOffset;
 
-        //BoxCollider boxCollider = this.GetComponent<BoxCollider>();
+        BoxCollider boxCollider = this.GetComponent<BoxCollider>();
 
-        //if (boxCollider != null)
-        //{
-        //    // Calculate the bottom of the BoxCollider relative to the object's position
-        //    float bottomOffset = boxCollider.center.y - (boxCollider.size.y / 2);
+        if (boxCollider != null)
+        {
+            // Calculate the bottom of the BoxCollider relative to the object's position
+            float bottomOffset = boxCollider.center.y - (boxCollider.size.y / 2);
 
-        //    // Adjust the position so the bottom of the BoxCollider is at floorHeight
-        //    Vector3 spawnPosition = this.transform.position;
-        //    spawnPosition.y = this.groundFloor.transform.position.y - bottomOffset;
+            // Adjust the position so the bottom of the BoxCollider is at floorHeight
+            Vector3 spawnPosition = this.transform.position;
+            //spawnPosition.y = this.groundFloor.transform.position.y - bottomOffset;
+            spawnPosition.y = 3.0f; // bad fix until not solving
 
-        //    // Set the adjusted position
-        //    this.transform.position = spawnPosition;
-        //}
-        //else
-        //{
-        //    Debug.LogError("The prefab does not have a BoxCollider component.");
-        //}
+            // Set the adjusted position
+            this.transform.position = spawnPosition;
+        }
+        else
+        {
+            Debug.LogError("The prefab does not have a BoxCollider component.");
+        }
     }
 }

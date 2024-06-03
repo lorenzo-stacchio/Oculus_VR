@@ -5,13 +5,13 @@
             "method": "laser",
             "macro": "classic",
             "type":"obj",
-            "offset_factor": "0.0",
+            "offset_factor": "-1.8",
             "rotation": {
                 "x":"-91.139",
                 "y":"251.583",
                 "z":"-215.715"
             },
-            "scale_metric": "3.8"
+            "scale_metric": "2.0"
         },
         "UAV": {
             "filepath": "Custom_Mesh/GT/NUOVE/UAV/SanGinesio_UAV_mesh_centered",
@@ -24,7 +24,7 @@
                 "y":"0.0",
                 "z":"0.0"
             },
-            "scale_metric": "5.0"
+            "scale_metric": "3.0"
         },
         "neural rendering_LUMAAI": {
             "filepath": "Custom_Mesh/NR/LUMAAI/San_Ginesio_textured_mesh_glb",
@@ -37,7 +37,7 @@
                 "y":"0.0",
                 "z":"0.0"
             },
-            "scale_metric": "5.0"
+            "scale_metric": "3.0"
         }
 
     }

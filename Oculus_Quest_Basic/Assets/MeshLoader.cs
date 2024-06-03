@@ -84,9 +84,6 @@ public class MeshLoader : MonoBehaviour
                 if (typeFormat == "obj") {
                  
                     GameObject child = instantiated.transform.Find("default").gameObject;
-                    FixPositionWithRespectTo instantiatedFixed = child.AddComponent<FixPositionWithRespectTo>();
-                    instantiatedFixed.Init(TargetVisuals, -1 * offset_factor, groundFloor);
-
                     BoxCollider meshChild = child.gameObject.AddComponent<BoxCollider>();
                     // Attach fix scale to make all the meshes equally greater
                     FixSize instantiatedFixedSizeObj = child.AddComponent<FixSize>();
@@ -94,17 +91,24 @@ public class MeshLoader : MonoBehaviour
                     //DestroyImmediate(child.gameObject.GetComponent<BoxCollider>());
                     //child.gameObject.AddComponent<BoxCollider>();
 
+                    FixPositionWithRespectTo instantiatedFixed = child.AddComponent<FixPositionWithRespectTo>();
+                    instantiatedFixed.Init(TargetVisuals, -1 * offset_factor, groundFloor);
+
+                   
+
                 }
                 else if (typeFormat == "glb")
                 { // does not have default child
-                    FixPositionWithRespectTo instantiatedFixed = instantiated.AddComponent<FixPositionWithRespectTo>();
-                    instantiatedFixed.Init(TargetVisuals, -1 * offset_factor, groundFloor);
                     BoxCollider meshChild = instantiated.AddComponent<BoxCollider>();
                     // Attach fix scale to make all the meshes equally greater
                     FixSize instantiatedFixedSizeGlb = instantiated.AddComponent<FixSize>();
                     instantiatedFixedSizeGlb.Init(scaleMetric);
                     //DestroyImmediate(meshChild.gameObject.GetComponent<BoxCollider>());
                     //meshChild.gameObject.AddComponent<BoxCollider>();
+
+                    FixPositionWithRespectTo instantiatedFixed = instantiated.AddComponent<FixPositionWithRespectTo>();
+                    instantiatedFixed.Init(TargetVisuals, -1 * offset_factor, groundFloor);
+                    
 
                 }
 
