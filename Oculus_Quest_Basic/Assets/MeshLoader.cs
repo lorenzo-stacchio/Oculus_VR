@@ -24,7 +24,12 @@ public class MeshLoader : MonoBehaviour
         //MeshModalities meshModalities = JsonUtility.FromJson<MeshModalities>(jsonString);
         Debug.Log("data");
 
-        foreach (var locationProperty in jsonObject)
+        float offset_x = 3f;
+        int count = 0; // hypothesize only one series of objects
+
+
+
+        foreach (var locationProperty in jsonObject) // this should contain only one key e.g. Statue
         {
             // Accessing key and value
             Debug.Log("Key: " + locationProperty.Key);
@@ -32,8 +37,7 @@ public class MeshLoader : MonoBehaviour
             Debug.Log("Value: " + locationProperty.Value);
             JObject jsonObjectInner = JObject.Parse(locationProperty.Value.ToString());
 
-            float offset_x = 2f;
-            int count = 0;
+           
             foreach (var method_Metadata in jsonObjectInner)
             {
                 //Debug.Log("Key: " + method_Metadata.Key);
@@ -75,7 +79,8 @@ public class MeshLoader : MonoBehaviour
                 instantiated.transform.localRotation = rotation;
 
 
-                GameObject TargetVisuals = containerManipulatorObjVisuals.transform.Find("Target").gameObject;
+                GameObject TargetVisuals = containerManipulatorObj.transform.FindChildRecursive("Target").gameObject;
+
                 //Attach fix position with respect to target
                 //FixPositionWithRespectTo instantiatedFixed = instantiated.AddComponent<FixPositionWithRespectTo>();
                 //instantiatedFixed.Init(TargetVisuals, -1f);
@@ -116,6 +121,11 @@ public class MeshLoader : MonoBehaviour
                 count++;
             }
         }
+
+        // put this objectat the center location
+        Vector3 tempTransform = this.transform.position;
+        tempTransform.x -= offset_x * (count / 2);
+        this.transform.position = tempTransform;
     }
 
 
