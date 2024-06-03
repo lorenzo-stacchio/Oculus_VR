@@ -40,7 +40,9 @@ public class NerfMeshManager : MonoBehaviour
 
     public void StopMotion()
     {
+
         Rigidbody rbdy = this.gameObject.GetComponent<Rigidbody>();
+        rbdy.useGravity = false;
         //Stop Moving/Translating
         rbdy.velocity = Vector3.zero;
         //Stop rotating

@@ -1,17 +1,30 @@
 {
     "San Ginesio": {
-        "SfM": {
+        "Laser": {
             "filepath": "Custom_Mesh/GT/NUOVE/TLS_GT/SanGinesio_TLS_mesh",
-            "method": "photogrammetry",
+            "method": "laser",
             "macro": "classic",
             "type":"obj",
-            "offset_factor": "0.22",
+            "offset_factor": "0.0",
             "rotation": {
                 "x":"-91.139",
                 "y":"251.583",
                 "z":"-215.715"
             },
-            "scale_metric": "4.0"
+            "scale_metric": "3.8"
+        },
+        "UAV": {
+            "filepath": "Custom_Mesh/GT/NUOVE/UAV/SanGinesio_UAV_mesh_centered",
+            "method": "photogrammetry",
+            "macro": "classic",
+            "type":"obj",
+            "offset_factor": "0.5",
+            "rotation": {
+                "x":"0.0",
+                "y":"0.0",
+                "z":"0.0"
+            },
+            "scale_metric": "5.0"
         },
         "neural rendering_LUMAAI": {
             "filepath": "Custom_Mesh/NR/LUMAAI/San_Ginesio_textured_mesh_glb",

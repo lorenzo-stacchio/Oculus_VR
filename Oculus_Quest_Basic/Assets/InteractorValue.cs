@@ -28,7 +28,6 @@ public class InteractorValue : MonoBehaviour
 
     public void Test()
     {
-        //Debug.Log("test");
         this.scoreManager.AddMark(this.gameObject.transform.parent.gameObject);
     }
 

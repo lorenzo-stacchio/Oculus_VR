@@ -12,6 +12,9 @@ public class MeshLoader : MonoBehaviour
     private string filePath = "Assets/Resources/DictMockup/exp_XR_salento.json";
     [SerializeField]
     private GameObject containerManipulator;
+
+    [SerializeField]
+    private GameObject groundFloor;
     // Start is called before the first frame update
     void Start()
     {
@@ -82,7 +85,7 @@ public class MeshLoader : MonoBehaviour
                  
                     GameObject child = instantiated.transform.Find("default").gameObject;
                     FixPositionWithRespectTo instantiatedFixed = child.AddComponent<FixPositionWithRespectTo>();
-                    instantiatedFixed.Init(TargetVisuals, -1 * offset_factor);
+                    instantiatedFixed.Init(TargetVisuals, -1 * offset_factor, groundFloor);
 
                     BoxCollider meshChild = child.gameObject.AddComponent<BoxCollider>();
                     // Attach fix scale to make all the meshes equally greater
@@ -95,7 +98,7 @@ public class MeshLoader : MonoBehaviour
                 else if (typeFormat == "glb")
                 { // does not have default child
                     FixPositionWithRespectTo instantiatedFixed = instantiated.AddComponent<FixPositionWithRespectTo>();
-                    instantiatedFixed.Init(TargetVisuals, -1 * offset_factor);
+                    instantiatedFixed.Init(TargetVisuals, -1 * offset_factor, groundFloor);
                     BoxCollider meshChild = instantiated.AddComponent<BoxCollider>();
                     // Attach fix scale to make all the meshes equally greater
                     FixSize instantiatedFixedSizeGlb = instantiated.AddComponent<FixSize>();
@@ -104,8 +107,6 @@ public class MeshLoader : MonoBehaviour
                     //meshChild.gameObject.AddComponent<BoxCollider>();
 
                 }
-
-
 
 
                 count++;
