@@ -38,6 +38,19 @@
                 "z":"0.0"
             },
             "scale_metric": "3.0"
+        },
+        "neural rendering_Nerfacto": {
+            "filepath": "Custom_Mesh/NR/Nerfacto/SanGinesio_nerfacto_mesh",
+            "method": "3DGS",
+            "macro": "Neural Rendering",
+            "type":"obj",
+            "offset_factor": "0.8",
+            "rotation": {
+                "x":"-83.86",
+                "y":"0.688",
+                "z":"-3.399"
+            },
+            "scale_metric": "1.8"
         }
 
     }

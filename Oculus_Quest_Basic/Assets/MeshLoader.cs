@@ -124,7 +124,9 @@ public class MeshLoader : MonoBehaviour
 
         // put this objectat the center location
         Vector3 tempTransform = this.transform.position;
-        tempTransform.x -= offset_x * (count / 2);
+        float countOffset = count % 2 == 0 ? (count / 2) + 0.5f : (float)(count / 2);
+        countOffset += -1;
+        tempTransform.x -= offset_x * countOffset;
         this.transform.position = tempTransform;
     }
 
