@@ -27,6 +27,8 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
+
+        //Debug.Log(IDManager.Instance.GetSubjectID());
         this.scoreObject = Instantiate(this.prefabButton, new Vector3(0, 0, 0), Quaternion.identity);
         this.scoreObject.transform.parent = this.gameObject.transform.parent;
         this.MeshName = this.gameObject.transform.parent.name;
@@ -113,7 +115,7 @@ public class ScoreManager : MonoBehaviour
 
 
 
-        DataModel test = new DataModel(Logger.logger.FirstName, Logger.logger.LastName,
+        DataModel test = new DataModel(Logger.logger.FirstName, Logger.logger.LastName, Logger.logger.ID,
                         "Base", this.MeshName, "Scoring", "Novel Score", actionState, System.DateTime.Now, this.selectedScore.ToString());
 
         Logger.logger.Add_Row_Log(test.ToString());

@@ -192,8 +192,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7702650213528187374}
         m_TargetAssemblyTypeName: NerfMeshManager, Assembly-CSharp
-        m_MethodName: StopMotion
-        m_Mode: 1
+        m_MethodName: OnInteractionEnd
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -204,20 +204,11 @@ MonoBehaviour:
         m_CallState: 2
   _whenHover:
     m_PersistentCalls:
-      m_Calls: []
-  _whenUnhover:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenSelect:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenUnselect:
-    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7702650213528187374}
         m_TargetAssemblyTypeName: NerfMeshManager, Assembly-CSharp
-        m_MethodName: StopMotion
-        m_Mode: 1
+        m_MethodName: Hovering
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -226,6 +217,27 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _whenUnhover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7702650213528187374}
+        m_TargetAssemblyTypeName: NerfMeshManager, Assembly-CSharp
+        m_MethodName: OnInteractionStart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenUnselect:
+    m_PersistentCalls:
+      m_Calls: []
   _whenMove:
     m_PersistentCalls:
       m_Calls: []
@@ -334,7 +346,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434389068063519248}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84cede8c2f4e4a24a93d028a622ab014, type: 3}
   m_Name: 
@@ -351,6 +363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2621930045906752745}
+  - component: {fileID: 8486648607940106718}
   m_Layer: 0
   m_Name: Scores
   m_TagString: Untagged
@@ -370,10 +383,26 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1589950890765996639}
   - {fileID: 7957158602916796835}
   m_Father: {fileID: 7957158603110803248}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8486648607940106718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6744633444026954872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84cede8c2f4e4a24a93d028a622ab014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabButton: {fileID: 490670773375596239, guid: 40cc6cd51ccadb74aaad97e04327e034, type: 3}
+  targetObject: {fileID: 7957158602916796892}
+  maxScore: 1
 --- !u!1 &7957158602213121458
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,7 +793,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2621930045906752745}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7957158602943929474
 GameObject:
@@ -2443,6 +2472,108 @@ Transform:
   m_Father: {fileID: 7957158603110803248}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &4337632956391227965
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2621930045906752745}
+    m_Modifications:
+    - target: {fileID: 3036268204798660706, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036268204798660706, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036268204798660706, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036268204798660706, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036268204798660706, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036268204798660706, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036268204798660706, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036268204798660706, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036268204798660706, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036268204798660706, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3036268204798660706, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4276124554386920930, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: m_Name
+      value: Reset
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860264389910469058, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860264389910469058, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7702650213528187374}
+    - target: {fileID: 6860264389910469058, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetTransform
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860264389910469058, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NerfMeshManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6860264389910469058, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7009493680701306779, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7009493680701306779, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7702650213528187374}
+    - target: {fileID: 7009493680701306779, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResetTransform
+      objectReference: {fileID: 0}
+    - target: {fileID: 7009493680701306779, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NerfMeshManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7009493680701306779, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+--- !u!4 &1589950890765996639 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3036268204798660706, guid: 0385d898c25e9c84bb7a0827b4814b44, type: 3}
+  m_PrefabInstance: {fileID: 4337632956391227965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7957158603281078192
 PrefabInstance:
   m_ObjectHideFlags: 0

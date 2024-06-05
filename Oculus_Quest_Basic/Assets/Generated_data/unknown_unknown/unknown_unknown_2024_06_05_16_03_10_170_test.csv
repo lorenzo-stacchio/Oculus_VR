@@ -1,0 +1,6 @@
+FirstName,LastName,ID,ObjectName,Modality,Phase,Step,typeLog,Value,TimeStamp
+unknown,unknown,unknown,San Ginesio_Laser,Base,Exploration,Hovering Interaction,RotoTranslation,Pos_-2.028048E-05----2.296802----1.621246E-05|Rot_1.164153E-10---1----1.862645E-09----1.088847E-08|Sc_1---1---1,05/06/2024 16:03:12
+unknown,unknown,unknown,San Ginesio_Laser,Base,Exploration,Hovering Interaction,RotoTranslation,Pos_1.2815E-06----2.304382----1.192093E-06|Rot_1.164153E-09---1----2.328307E-09----1.235458E-08|Sc_1---1---1,05/06/2024 16:03:14
+unknown,unknown,unknown,San Ginesio_Laser,Base,Exploration,Hovering Interaction,RotoTranslation,Pos_1.594424E-06----2.296793----1.192093E-06|Rot_1.164153E-09---1----2.328307E-09----1.235458E-08|Sc_1---1---1,05/06/2024 16:03:15
+unknown,unknown,unknown,San Ginesio_Laser,Base,Exploration,Interaction Started,RotoTranslation,Pos_1.594424E-06----2.296793----1.192093E-06|Rot_1.164153E-09---1----2.328307E-09----1.235458E-08|Sc_1---1---1,05/06/2024 16:03:16
+unknown,unknown,unknown,San Ginesio_Laser,Base,Exploration,Interaction Ended,RotoTranslation,Pos_-0.2899973----1.923774---1.019688|Rot_0.09688831---0.9766713----0.1205752----0.1489549|Sc_1---1---1,05/06/2024 16:03:16

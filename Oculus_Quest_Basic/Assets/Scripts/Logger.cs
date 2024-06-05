@@ -24,7 +24,7 @@ public class Logger : MonoBehaviour
 
 
     [SerializeField]
-    public int Id;
+    public string ID;
 
 
     // Private and not editor-visible variables
@@ -36,10 +36,23 @@ public class Logger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Get ID from previous scene objects
+        if (IDManager.Instance != null)
+        {
+            this.FirstName = "unknown";
+            this.LastName = "unknown";
+            this.ID = IDManager.Instance.GetSubjectID();
+        } else
+        {
+            this.FirstName = "unknown";
+            this.LastName = "unknown";
+            this.ID = "unknown";
+        }
+
         logger = this;
         logger.csv_logs = new List<string>();
-        logger.dirsavePath = logger.folderPath + $"{this.FirstName}_{this.LastName}/";
-        logger.savePath = logger.dirsavePath + $"{this.FirstName}_{this.LastName}_{DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss_fff")}_test.csv";
+        logger.dirsavePath = logger.folderPath + $"{this.ID}_{this.ID}/";
+        logger.savePath = logger.dirsavePath + $"{this.ID}_{this.ID}_{DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss_fff")}_test.csv";
 
         if (!Directory.Exists(logger.dirsavePath))
         {

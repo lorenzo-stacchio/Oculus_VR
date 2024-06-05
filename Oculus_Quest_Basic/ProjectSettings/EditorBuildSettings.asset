@@ -5,15 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/TestManipulation.unity
-    guid: c3aac38c1fd359b49ba28a6624d11908
-  - enabled: 0
-    path: Assets/Scenes/ComprehensiveRigExample.unity
-    guid: ebae9c9391425cc4cace6a473255d7b8
   - enabled: 1
-    path: Assets/Scenes/TestManipulationNOMESH.unity
-    guid: 2a396a91f517aba478fa4a97ae5edb4f
+    path: Assets/Scenes/Menu.unity
+    guid: ce9e8b1849a2c6242afff9f51315ba88
+  - enabled: 1
+    path: Assets/Scenes/TestManipulation_SanGinesio_Score.unity
+    guid: 8e2e2f35896439646a287d9821730061
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b0d6335d7c66d754b8304953f7f98946, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: a1f386919096d6b4c995836d5b1d2bdb, type: 2}

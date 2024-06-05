@@ -1,0 +1,11 @@
+FirstName,LastName,ID,ObjectName,Modality,Phase,Step,typeLog,Value,TimeStamp
+unknown,unknown,unknown,San Ginesio_Laser,Base,Scoring,Novel Score,FirstMark,5,05/06/2024 16:01:15
+unknown,unknown,unknown,San Ginesio_Laser,Base,Exploration,Hovering Interaction,RotoTranslation,Pos_1.594424E-06----2.296793----1.192093E-06|Rot_1.164153E-09---1----2.328307E-09----1.235458E-08|Sc_1---1---1,05/06/2024 16:01:18
+unknown,unknown,unknown,San Ginesio_Laser,Base,Exploration,Hovering Interaction,RotoTranslation,Pos_1.594424E-06----2.296793----1.192093E-06|Rot_1.164153E-09---1----2.328307E-09----1.235458E-08|Sc_1---1---1,05/06/2024 16:01:20
+unknown,unknown,unknown,San Ginesio_Laser,Base,Exploration,Hovering Interaction,RotoTranslation,Pos_1.594424E-06----2.296793----1.192093E-06|Rot_1.164153E-09---1----2.328307E-09----1.235458E-08|Sc_1---1---1,05/06/2024 16:01:20
+unknown,unknown,unknown,San Ginesio_Laser,Base,Exploration,Hovering Interaction,RotoTranslation,Pos_1.594424E-06----2.296793----1.192093E-06|Rot_1.164153E-09---1----2.328307E-09----1.235458E-08|Sc_1---1---1,05/06/2024 16:01:21
+unknown,unknown,unknown,San Ginesio_Laser,Base,Exploration,Interaction Started,RotoTranslation,Pos_1.594424E-06----2.296793----1.192093E-06|Rot_1.164153E-09---1----2.328307E-09----1.235458E-08|Sc_1---1---1,05/06/2024 16:01:22
+unknown,unknown,unknown,San Ginesio_Laser,Base,Exploration,Interaction Ended,RotoTranslation,Pos_0.9330553----2.26857---0.8031086|Rot_0.08708651----0.9609191---0.08188059---0.2496917|Sc_1---1---1,05/06/2024 16:01:22
+unknown,unknown,unknown,San Ginesio_Laser,Base,Exploration,Hovering Interaction,RotoTranslation,Pos_0.9330667----2.268854---0.8031205|Rot_0.08708646----0.9609191---0.08188055---0.2496919|Sc_1---1---1,05/06/2024 16:01:24
+unknown,unknown,unknown,San Ginesio_Laser,Base,Exploration,Hovering Interaction,RotoTranslation,Pos_0.9330831----2.269249---0.8031369|Rot_0.08708646----0.9609191---0.08188055---0.2496919|Sc_1---1---1,05/06/2024 16:01:27
+unknown,unknown,unknown,San Ginesio_Laser,Base,Exploration,Hovering Interaction,RotoTranslation,Pos_0.9330843----2.269277---0.8031381|Rot_0.08708646----0.9609191---0.08188055---0.2496919|Sc_1---1---1,05/06/2024 16:01:27
