@@ -29,6 +29,21 @@
 
 {
     "San Ginesio": {
+        ,
+        "neural rendering_Sugar": {
+            "filepath": "Custom_Mesh/NR/SUGAR/sanginesio/sugar_centered",
+            "method": "SUGAR",
+            "macro": "Neural Rendering",
+            "type":"obj",
+            "offset_factor": "1.0",
+            "rotation": {
+                "x":"1.666",
+                "y":"99.288",
+                "z":"-4.299"
+            },
+            "scale_metric": "3.0"
+        }
+,
         "SfM": {
             "filepath": "Custom_Mesh/GT/StatuaTLS",
             "method": "photogrammetry",
