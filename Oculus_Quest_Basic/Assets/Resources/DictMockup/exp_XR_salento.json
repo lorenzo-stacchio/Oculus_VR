@@ -1,5 +1,18 @@
 {
     "San Ginesio": {
+        "neural rendering_Nerfacto": {
+            "filepath": "Custom_Mesh/NR/Nerfacto/obj/MeshNERFACTO_centered",
+            "method": "3DGS",
+            "macro": "Neural Rendering",
+            "type":"obj",
+            "offset_factor": "1.0",
+            "rotation": {
+                "x":"-89.709",
+                "y":"14.58",
+                "z":"-17.294"
+            },
+            "scale_metric": "1.6"
+        },
         "Laser": {
             "filepath": "Custom_Mesh/GT/NUOVE/TLS_GT/SanGinesio_TLS_mesh",
             "method": "laser",
@@ -13,44 +26,45 @@
             },
             "scale_metric": "2.0"
         },
-        "UAV": {
-            "filepath": "Custom_Mesh/GT/NUOVE/UAV/SanGinesio_UAV_mesh_centered",
-            "method": "photogrammetry",
-            "macro": "classic",
-            "type":"obj",
-            "offset_factor": "0.5",
-            "rotation": {
-                "x":"0.0",
-                "y":"0.0",
-                "z":"0.0"
-            },
-            "scale_metric": "3.0"
-        },
         "neural rendering_LUMAAI": {
             "filepath": "Custom_Mesh/NR/LUMAAI/San_Ginesio_textured_mesh_glb",
             "method": "3DGS",
             "macro": "Neural Rendering",
             "type":"glb",
-            "offset_factor": "1.0",
+            "offset_factor": "1.2",
             "rotation": {
                 "x":"0.0",
                 "y":"0.0",
                 "z":"0.0"
             },
-            "scale_metric": "3.0"
+            "scale_metric": "2.9"
         },
-        "neural rendering_Nerfacto": {
-            "filepath": "Custom_Mesh/NR/Nerfacto/SanGinesio_nerfacto_mesh",
-            "method": "3DGS",
+        "UAV": {
+            "filepath": "Custom_Mesh/GT/NUOVE/UAV/SanGinesio_UAV_mesh_centered",
+            "method": "photogrammetry",
+            "macro": "classic",
+            "type":"obj",
+            "offset_factor": "0.7",
+            "rotation": {
+                "x":"0.0",
+                "y":"0.0",
+                "z":"0.0"
+            },
+            "scale_metric": "2.8"
+        },
+       
+        "neural rendering_Sugar": {
+            "filepath": "Custom_Mesh/NR/SUGAR/sanginesio/sugar_centered",
+            "method": "SUGAR",
             "macro": "Neural Rendering",
             "type":"obj",
-            "offset_factor": "0.8",
+            "offset_factor": "1.0",
             "rotation": {
-                "x":"-83.86",
-                "y":"0.688",
-                "z":"-3.399"
+                "x":"1.666",
+                "y":"99.288",
+                "z":"-4.299"
             },
-            "scale_metric": "1.8"
+            "scale_metric": "3.0"
         }
 
     }

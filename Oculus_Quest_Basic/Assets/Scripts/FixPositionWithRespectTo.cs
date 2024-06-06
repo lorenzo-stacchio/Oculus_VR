@@ -7,6 +7,7 @@ public class FixPositionWithRespectTo : MonoBehaviour
     private GameObject withRespectTo;
     private GameObject groundFloor;
     private float forwardOffset;
+    private float heigth = 2.0f;
 
     // Update is called once per frame
     void Update()
@@ -53,7 +54,7 @@ public class FixPositionWithRespectTo : MonoBehaviour
             // Adjust the position so the bottom of the BoxCollider is at floorHeight
             Vector3 spawnPosition = this.transform.position;
             //spawnPosition.y = this.groundFloor.transform.position.y - bottomOffset;
-            spawnPosition.y = 3.0f; // bad fix until not solving
+            spawnPosition.y = heigth; // bad fix until not solving
 
             // Set the adjusted position
             this.transform.position = spawnPosition;

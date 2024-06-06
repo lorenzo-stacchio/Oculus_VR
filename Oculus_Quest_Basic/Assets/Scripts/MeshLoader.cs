@@ -93,8 +93,8 @@ public class MeshLoader : MonoBehaviour
 
 
                 if (typeFormat == "obj") {
-                 
-                    GameObject child = instantiated.transform.Find("default").gameObject;
+
+                    GameObject child = instantiated.transform.GetChild(0).gameObject;//instantiated.transform.Find("default").gameObject;
                     BoxCollider meshChild = child.gameObject.AddComponent<BoxCollider>();
                     // Attach fix scale to make all the meshes equally greater
                     FixSize instantiatedFixedSizeObj = child.AddComponent<FixSize>();
@@ -133,8 +133,8 @@ public class MeshLoader : MonoBehaviour
 
         //// put this objectat the center location
         Vector3 tempTransform = this.transform.position;
-        float countOffset = count % 2 == 0 ? (count / 2) + 0.5f : (float)(count / 2);
-        countOffset += -1;
+        float countOffset = count % 2 == 0 ? (count / 2): (float)(count / 2) + 0.5f;
+        //countOffset += -1;
         tempTransform.x -= offset_x * countOffset;
         this.transform.position = tempTransform;
 
